@@ -1,0 +1,47 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <meta charset="utf-8" /> 
+    <title>Shopping Cart</title> 
+    <link rel="stylesheet" href="css/style.css" type="text/css"/> 
+</head> 
+<body>   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+    <script src="js/jquery.ndd.js"></script> 
+    <script type="text/javascript" src="js/script.js"></script> 
+
+    <ul id="products">
+        <li><a class="item" href="#" id="imac" draggable="true"><img src="images/iMac.jpg"/>         
+        <div> 
+            <p><strong>iMac</strong></p> 
+            <p><strong>Price</strong>: <span>$1000.00</span></p> 
+            <p><strong>Quantity</strong>: <span>10</span></p> 
+        </div> 
+        </a></li>
+
+        <li><a class="item" href="#" id="tshirt" draggable="true"><img src="images/t-shirt.jpg"/> 
+            <div> 
+                <p><strong>T Shirt</strong></p> 
+                <p><strong>Price</strong>: <span>$5.00</span></p> 
+                <p><strong>Quantity</strong>: <span>5</span></p> 
+            </div> 
+        </a></li>
+
+        <li><a class="item" href="#" id="cap" draggable="true"><img src="images/cap.jpg"/> 
+            <div> 
+                <p><strong>Baseball Cap</strong></p> 
+                <p><strong>Price</strong>: <span>$10.00</span></p> 
+                <p><strong>Quantity</strong>: <span>6</span></p> 
+            </div> 
+        </a></li>
+    </ul>
+
+    <div id="cart"> 
+    <h1>Shopping Cart</h1> 
+    <ul></ul> 
+    <p id="total"><strong>Total Cost:</strong> $<span>0.00</span></p> 
+    <h2>Drop here to add to cart</h2> 
+</div>
+
+</body> 
+</html>

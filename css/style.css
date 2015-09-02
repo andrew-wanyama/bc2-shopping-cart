@@ -1,0 +1,99 @@
+[draggable=true] { 
+    cursor : move; 
+}
+
+html { 
+    height:100%; 
+} 
+body { 
+    background: #ececec; 
+    margin:0; 
+    padding:0; 
+    font: 13px/1.5 helvetica, arial, san-serif; 
+    height: 100%; 
+} 
+h1, h2 { text-align:center; } 
+h2 { 
+    position:absolute; 
+    bottom: 20px; 
+    color:#fff; 
+    text-shadow:0 0 10px rgba(0, 0, 0, 0.75); 
+    background: #94C5EB url(../images/background-grad.png) repeat-x;
+    display:none; 
+} 
+p { margin:0; }
+
+#products { 
+    float:left; 
+    list-style:none; 
+    width:65%; 
+    padding:0; 
+} 
+
+#products li { 
+    display:inline; 
+}
+
+.item { 
+    display:block; 
+    float:left; 
+    width:240px; 
+    height:220px; 
+    margin:10px; 
+    border:1px solid #494949; 
+    text-align:center; 
+    text-decoration:none; 
+    color: #000; 
+    overflow:hidden; 
+} 
+
+.item img { 
+    border:0; 
+    margin:10px auto; 
+    width:220px; 
+    height:200px; 
+} 
+
+.item div { 
+    background:rgb(0, 0, 0); 
+    background: rgba(0, 0, 0, 0.5); 
+    position:relative; 
+    bottom:80px; 
+    color:#f3f3f3; 
+    padding:5px 0; 
+    display:none; 
+}
+
+#cart { 
+    float:right; 
+    background-color:#fff; 
+    width:25%; 
+    padding:0 5%; 
+    height:100%; 
+} 
+#cart ul { 
+    padding:0; 
+} 
+#cart li { 
+    list-style:none; 
+    border-bottom:1px solid #494949; 
+    padding:5px; 
+} 
+#cart .quantity { 
+    font-weight:bold; 
+    padding-right:10px; 
+    margin-right: 10px;     
+    display:inline-block; 
+    width:15px; 
+    text-align:right; 
+    float:right;
+} 
+#cart .price { 
+    float:right; 
+    margin-left: 50px;  
+} 
+#total { 
+    float:right; 
+}
+
+
