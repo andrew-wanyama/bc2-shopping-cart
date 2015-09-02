@@ -52,8 +52,15 @@ $(document).ready(function(){
 		        'class' : 'quantity', 
 		        text : '0' 
 		    })).prepend($('<span />', { 
+		        'class' : 'times', 
+		        text : 'X' 
+		    })).prepend($('<span />', { 
 		        'class' : 'price', 
 		        text : price 
+		    })).prepend($('<input />', { 
+		        'class' : 'remove-item', 
+		        'type' : 'button',
+		        'value' : "X"
 		    })).appendTo(cartList); 
 		}
 
@@ -66,12 +73,39 @@ $(document).ready(function(){
 		//remove from product list if we run out of stock
 		if (quantLeft === 0) {
 		    item.fadeOut('fast').remove(); 
-		} 
+		} 	
 
 		total.text((parseFloat(total.text(), 10) + parseFloat(price.split('$')[1])).toFixed(2)); 
+		localStorage.setItem("total", total.text());
  		//prevent event to bubble
 		event.stopPropagation(); 
 		return false;
     });
+
+	$('#cart').on('click','.remove-item',function(){
+		var removeNum = prompt("How many items do you want to remove?");
+		remNum = parseInt(removeNum);
+		//reduce quantity bought by remNum
+		var newquant = (parseInt($(this).nextAll('#cart .quantity').text(), 10) - remNum);
+		if(newquant >= 0){
+			$(this).nextAll('#cart .quantity').text(newquant);
+			//reduce total i.e total - (price * remNum)
+			var total = parseFloat(localStorage.getItem("total")).toFixed(2); //get total
+			var curPrice = parseFloat($(this).nextAll('#cart .price').text().split('$')[1]).toFixed(2);//get price
+			//New Total
+			total = total - (curPrice * remNum)
+			$("#total span").text(total.toFixed(2));
+			//update Total's value in local storage
+			localStorage.setItem("total", total.toFixed(2));
+			////if quantity runs to 0, remove from cart area entirely
+		}			
+		else if(newquant === 0){
+			$(this).closest('li').remove();
+		}
+		else if(newquant < 0){
+			alert("You cannot remove more items than you bought!")
+		}
+	});
+
 });
 

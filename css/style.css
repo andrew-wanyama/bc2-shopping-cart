@@ -88,6 +88,18 @@ p { margin:0; }
     text-align:right; 
     float:right;
 } 
+#cart .times { 
+    padding-right:10px; 
+    margin-right: 10px;     
+    display:inline-block; 
+    width:15px;
+    float:right;
+} 
+#cart .remove-item {     
+    display:inline-block; 
+    width:20px; 
+    float:right;
+} 
 #cart .price { 
     float:right; 
     margin-left: 50px;  
