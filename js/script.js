@@ -88,6 +88,25 @@ $(document).ready(function(){
 		//reduce quantity bought by remNum
 		var newquant = (parseInt($(this).nextAll('#cart .quantity').text(), 10) - remNum);
 		if(newquant >= 0){
+			//updating stock on products panels
+			//get the item 
+			var itemdesc = $(this).closest('li').text(); 
+			itemdesc = itemdesc.substring(itemdesc.indexOf("X") + 2);
+			//alert(itemdesc);
+			//Update stock after removing from cart - should increase	
+			var items = $('#products li');			
+			var itemsLen = items.length;
+
+			for(var i = 0; i < itemsLen; i++){				
+				if(($("#products li:eq("+i+") p:first").text()) === itemdesc){
+				
+				//var newStock = parseInt($("#products li:eq("+i+") p:first").nextAll('p:last').text().match(/\d+/)) + remNum;
+				var newStock = parseInt($("#products li:eq("+i+") p:last span").text()) + remNum;			
+				$("#products li:eq("+i+") p:last span").text(newStock);		
+				}
+
+			}
+			
 			$(this).nextAll('#cart .quantity').text(newquant);
 			//reduce total i.e total - (price * remNum)
 			var total = parseFloat(localStorage.getItem("total")).toFixed(2); //get total
@@ -96,10 +115,10 @@ $(document).ready(function(){
 			total = total - (curPrice * remNum)
 			$("#total span").text(total.toFixed(2));
 			//update Total's value in local storage
-			localStorage.setItem("total", total.toFixed(2));
-			////if quantity runs to 0, remove from cart area entirely
+			localStorage.setItem("total", total.toFixed(2));			
 		}			
-		else if(newquant === 0){
+		//if quantity runs to 0, remove item from cart area entirely
+		if(newquant === 0){
 			$(this).closest('li').remove();
 		}
 		else if(newquant < 0){
