@@ -53,7 +53,7 @@ $(document).ready(function(){
 		        text : '0' 
 		    })).prepend($('<span />', { 
 		        'class' : 'times', 
-		        text : 'X' 
+		        text : "X" 
 		    })).prepend($('<span />', { 
 		        'class' : 'price', 
 		        text : price 
@@ -91,8 +91,12 @@ $(document).ready(function(){
     });
 
 	$('#cart').on('click','.remove-item',function(){
-		var removeNum = prompt("How many items do you want to remove?");
+		var removeNum = prompt("How many would you like to remove?");
 		remNum = parseInt(removeNum);
+		if(isNaN(remNum) || remNum < 0){
+			alert("Please enter a positive number");
+			return false;
+		}
 		//reduce quantity bought by remNum
 		var newquant = (parseInt($(this).nextAll('#cart .quantity').text(), 10) - remNum);
 		if(newquant >= 0){

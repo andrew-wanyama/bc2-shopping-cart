@@ -12,15 +12,29 @@ body {
     font: 13px/1.5 helvetica, arial, san-serif; 
     height: 100%; 
 } 
-h1, h2 { text-align:center; } 
-h2 { 
-    position:absolute; 
-    bottom: 20px; 
-    color:#fff; 
-    text-shadow:0 0 10px rgba(0, 0, 0, 0.75); 
-    background: #94C5EB url(../images/background-grad.png) repeat-x;
-    display:none; 
+
+#header {
+    height: 33px;
+    color: #172322;
+    background: transparent url(../images/header-corners-wide.png) no-repeat bottom left;
+}
+#header h1{
+    margin-left: 25%;
+}
+
+h2 {
+    position: absolute;
+    width: 30%;
+    height: 50px;
+    color: #fff;    
+    background:rgb(0, 0, 0); 
+    background: rgba(0, 0, 0, 0.7); 
+    display: none;
+    text-align: center;
+    font-size: 150%;
+    font-weight: bold;
 } 
+
 p { margin:0; }
 
 #products { 
@@ -56,17 +70,18 @@ p { margin:0; }
 
 .item div { 
     background:rgb(0, 0, 0); 
-    background: rgba(0, 0, 0, 0.5); 
+    background: rgba(0, 0, 0, 0.7); 
     position:relative; 
-    bottom:80px; 
+    bottom:100px; 
     color:#f3f3f3; 
     padding:5px 0; 
     display:none; 
+    height: 100px;
 }
 
 #cart { 
     float:right; 
-    background-color:#fff; 
+    background-color:#FFFFCC; 
     width:25%; 
     padding:0 5%; 
     height:100%; 
@@ -89,23 +104,30 @@ p { margin:0; }
     float:right;
 } 
 #cart .times { 
-    padding-right:10px; 
-    margin-right: 10px;     
+    /*padding-right:10px; 
+    /*margin-right: 10px;*/     
     display:inline-block; 
-    width:15px;
+    width:30px;    
+    margin-left: 15px;
     float:right;
 } 
 #cart .remove-item {     
     display:inline-block; 
-    width:20px; 
+    width: 30px; 
     float:right;
+    background-color: #FF3333;
+    margin-left: 10px;
 } 
 #cart .price { 
+    display:inline-block;
+    width: 50px;
+    margin-left: 15px; 
     float:right; 
-    margin-left: 50px;  
 } 
 #total { 
-    float:right; 
+    display:inline-block;
+    float: right;
+    margin-right: 40px;
 }
 
 
