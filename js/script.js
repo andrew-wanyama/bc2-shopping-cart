@@ -102,9 +102,9 @@ $(document).ready(function(){
 		if(newquant >= 0){
 			//updating stock on products panels
 			//get the item 
-			var itemdesc = $(this).closest('li').text(); 
-			itemdesc = itemdesc.substring(itemdesc.indexOf("X") + 2);
-			//alert(itemdesc);
+			var itemdesc = $(this).closest('li').text(); //$1099.00X10iMac
+			itemdesc = itemdesc.split('X').pop().match(/\D+/).toString();//e.g iMac
+						
 			//Update stock after removing from cart - should increase	
 			var items = $('#products li');			
 			var itemsLen = items.length;
