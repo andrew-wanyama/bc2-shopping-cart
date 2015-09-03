@@ -66,20 +66,28 @@ $(document).ready(function(){
 
 		quantLeftEl = $('p:last span', item); //get quantity from product item
 		quantLeft   = parseInt(quantLeftEl.text(), 10) - 1; //what's really left - decrement the quantity
-		quantLeftEl.text(quantLeft); 
+		if(quantLeft >= 0){
+			quantLeftEl.text(quantLeft); 
 
-		quantBoughtEl = $('.quantity', prevCartItem); //increment quantity
-		quantBoughtEl.text(parseInt(quantBoughtEl.text(), 10) + 1);
+			quantBoughtEl = $('.quantity', prevCartItem); //increment quantity
+			quantBoughtEl.text(parseInt(quantBoughtEl.text(), 10) + 1);
+
+
+			total.text((parseFloat(total.text(), 10) + parseFloat(price.split('$')[1])).toFixed(2)); 
+			localStorage.setItem("total", total.text());
+			//alert("Item successfully added to your cart.");
+	 		//prevent event to bubble
+			event.stopPropagation(); 
+			return false;
+		}
 		//remove from product list if we run out of stock
-		if (quantLeft === 0) {
-		    item.fadeOut('fast').remove(); 
+		if (quantLeft <= 0) {
+		    //item.fadeOut('fast').remove(); 
+		    alert("Sorry, looks like this item is out of stock.");
+		    return false;
 		} 	
-
-		total.text((parseFloat(total.text(), 10) + parseFloat(price.split('$')[1])).toFixed(2)); 
-		localStorage.setItem("total", total.text());
- 		//prevent event to bubble
-		event.stopPropagation(); 
-		return false;
+		
+		
     });
 
 	$('#cart').on('click','.remove-item',function(){
